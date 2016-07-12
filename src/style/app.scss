@@ -1,0 +1,11 @@
+$headerColor: #005c63;
+
+.navbar.navbar-inverse {
+  background: $headerColor;
+  border-color: $headerColor;
+  border-radius: 0;
+
+  .navbar-brand, .navbar-nav > li > a {
+    color: #ddd;
+  }
+}
