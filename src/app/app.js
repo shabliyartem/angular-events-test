@@ -8,6 +8,7 @@ import '../style/app.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import collapse from 'angular-ui-bootstrap/src/collapse';
+import modal from 'angular-ui-bootstrap/src/modal';
 
 import appCtrl from './app.ctrl';
 import events from './events';
@@ -20,7 +21,7 @@ let app = () => {
   }
 };
 
-angular.module('app', [uirouter, ngAnimate, collapse, events])
+angular.module('app', [uirouter, ngAnimate, collapse, modal, events])
   .config(routing)
   .directive('app', app)
   .controller('AppCtrl', appCtrl);

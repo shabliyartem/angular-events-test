@@ -4,35 +4,48 @@ import _ from 'lodash';
 class EventsStore {
   constructor ($window) {
     this._storage = $window.localStorage;
+    this._readStorage();
+  }
+
+  _readStorage () {
     let rawEvents = this._storage.getItem('events');
     this._events = rawEvents ? JSON.parse(rawEvents) : [];
   }
 
-  get () {
-    return this._events;
-  }
-
-  set (events) {
-    this._events = events;
+  _setStorage (events) {
     this._storage.setItem('events', JSON.stringify(this._events));
   }
 
-  add (event) {
+  all () {
+    return _.cloneDeep(this._events);
+  }
+
+  find (id) {
+    return _.cloneDeep(_.find(this._events, {id: id}));
+  }
+
+  create (event) {
     let lastEvent = _.last(this._events);
     event.id = lastEvent ? lastEvent.id + 1 : 1;
     this._events.push(event);
-    this.set(this._events);
+    this._setStorage(this._events);
   }
 
-  remove (id) {
+  update (id, newEvent) {
+    let event = _.find(this._events, {id: id});
+    _.assign(event, newEvent);
+    this._setStorage(this._events);
+  }
+
+  destroy (id) {
     let event = _.find(this._events, {id: id});
     _.remove(this._events, event);
-    this.set(this._events);
+    this._setStorage(this._events);
   }
 
-  clear () {
+  destroyAll () {
     this._events = [];
-    this.set(this._events);
+    this._setStorage(this._events);
   }
 }
 

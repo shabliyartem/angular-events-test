@@ -4,6 +4,7 @@
       <th>Name</th>
       <th>Price</th>
       <th>Date</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
@@ -11,19 +12,15 @@
       <td>{{event.name}}</td>
       <td>{{event.price}}</td>
       <td>{{event.date | date:'medium'}}</td>
+      <td>
+        <a ui-sref="events.edit(event)">Edit</a>
+      </td>
+      <td>
+        <a href="#" ng-click="scope.destroyEvent(event)">Delete</a>
+      </td>
+    </tr>
+    <tr ng-if="scope.events.length === 0">
+      <td colspan="5" class="text-center">There is no events</td>
     </tr>
   </tbody>
 </table>
-
-<form ng-submit="scope.saveEvent()">
-  <div class="form-group">
-    <label for="event-name">Name</label>
-    <input type="text" class="form-control" id="event-name" placeholder="Type event name here" ng-model="scope.event.name">
-  </div>
-  <div class="form-group">
-    <label for="event-price">Price</label>
-    <input type="number" class="form-control" id="event-price" placeholder="Type event price here" ng-model="scope.event.price">
-  </div>
-
-  <button type="submit" class="btn btn-default">Create</button>
-</form>
