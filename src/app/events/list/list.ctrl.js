@@ -1,9 +1,13 @@
 export default class EventsListCtrl {
-  constructor () {
-    this.name = 'World';
+  constructor (eventsStore) {
+    this.events = eventsStore.get();
+    this._eventsStore = eventsStore;
+    this.event = {};
   }
 
-  changeName () {
-    this.name = 'Events';
+  saveEvent () {
+    this.event.date = new Date();
+    this._eventsStore.add(this.event);
+    this.event = {};
   }
 }
