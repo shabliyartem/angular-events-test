@@ -1,8 +1,8 @@
 import angular from 'angular';
 
-function faCurrency ($sce) {
+function faCurrency () {
   return (number, icon) => {
-    return $sce.trustAsHtml(`<i class="fa fa-${icon}></i> ${number}`);
+    return `<span><i class="fa fa-${icon}"></i>${number}</span>`;
   };
 }
 

@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate'
+import ngSanitize from 'angular-sanitize'
 
 import routing from '../config/router.js';
 
@@ -23,7 +24,7 @@ let app = () => {
   }
 };
 
-angular.module('app', [uirouter, ngAnimate, collapse, modal, faCurrency, confirmModal, eventFormModal, events])
+angular.module('app', [uirouter, ngAnimate, ngSanitize, collapse, modal, faCurrency, confirmModal, eventFormModal, events])
   .config(routing)
   .directive('app', app)
   .controller('AppCtrl', appCtrl);
