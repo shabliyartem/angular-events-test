@@ -5,7 +5,6 @@ import ngAnimate from 'angular-animate'
 import routing from '../config/router.js';
 
 import '../style/app.scss';
-import 'bootstrap/dist/css/bootstrap.css';
 
 import collapse from 'angular-ui-bootstrap/src/collapse';
 import modal from 'angular-ui-bootstrap/src/modal';
