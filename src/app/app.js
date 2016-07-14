@@ -11,6 +11,7 @@ import collapse from 'angular-ui-bootstrap/src/collapse';
 import modal from 'angular-ui-bootstrap/src/modal';
 import faCurrency from '../filters/faCurrency.filter';
 import confirmModal from '../services/confirmModal/confirmModal.service';
+import eventFormModal from '../services/eventFormModal.service';
 
 import appCtrl from './app.ctrl';
 import events from './events';
@@ -23,7 +24,7 @@ let app = () => {
   }
 };
 
-angular.module('app', [uirouter, ngAnimate, collapse, modal, faCurrency, confirmModal, events])
+angular.module('app', [uirouter, ngAnimate, collapse, modal, faCurrency, confirmModal, eventFormModal, events])
   .config(routing)
   .directive('app', app)
   .controller('AppCtrl', appCtrl);

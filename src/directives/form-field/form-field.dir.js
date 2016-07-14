@@ -1,4 +1,5 @@
 import angular from 'angular';
+import _ from 'lodash';
 
 function formField () {
   return {
@@ -19,7 +20,7 @@ function formField () {
       maxlength: '=?',
       pattern: '@?'
     },
-    link: function (scope) {
+    link: (scope) => {
       scope.inputId = _.uniqueId(`form-field-${scope.name}-`);
     }
   }

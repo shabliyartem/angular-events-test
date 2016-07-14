@@ -5,7 +5,7 @@ export default class EventsNewCtrl {
     this.event = {};
   }
 
-  create (form) {
+  save (form) {
     if (form.$valid) {
       this.event.date = new Date();
       this._eventsStore.create(this.event);

@@ -1,4 +1,5 @@
 import angular from 'angular';
+import _ from 'lodash';
 
 class ConfirmModal {
   constructor ($uibModal) {
@@ -8,7 +9,7 @@ class ConfirmModal {
   show (options) {
     let modalInstance = this._uibModal.open({
       template: require('./confirmModal.html'),
-      controller: function ($scope) {
+      controller: ($scope) => {
         _.assign($scope, options);
       }
     });

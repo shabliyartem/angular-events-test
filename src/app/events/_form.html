@@ -1,6 +1,6 @@
-<form novalidate="" name="eventForm" ng-submit="scope.create(eventForm)">
+<form novalidate="" name="eventForm" ng-submit="scope.save(eventForm)">
   <div class="modal-header">
-    <h3 class="modal-title">Create Event</h3>
+    <h3 class="modal-title">{{scope.event.id ? 'Update' : 'Create'}} Event</h3>
   </div>
   <div class="modal-body">
     <form-field ng-model="scope.event.name" name="name" form="eventForm" label="Name" placeholder="Type event name here" required="true"></form-field>
@@ -8,6 +8,6 @@
   </div>
   <div class="modal-footer">
     <button class="btn btn-default" type="button" ng-click="scope.cancel()">Cancel</button>
-    <button class="btn btn-success" type="submit">Create</button>
+    <button class="btn btn-success" type="submit">{{scope.event.id ? 'Update' : 'Create'}}</button>
   </div>
 </form>

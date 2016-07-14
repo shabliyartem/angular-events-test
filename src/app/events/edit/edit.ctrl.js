@@ -6,7 +6,7 @@ export default class EventsEditCtrl {
     this.event = eventsStore.find(eventId);
   }
 
-  update (form) {
+  save (form) {
     if (form.$valid) {
       this._eventsStore.update(this._eventId, this.event);
       this._modalInstance.close();
