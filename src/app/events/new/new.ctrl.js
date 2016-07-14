@@ -5,11 +5,13 @@ export default class EventsNewCtrl {
     this.event = {};
   }
 
-  create () {
-    this.event.date = new Date();
-    this._eventsStore.create(this.event);
-    this.event = {};
-    this._modalInstance.close();
+  create (form) {
+    if (form.$valid) {
+      this.event.date = new Date();
+      this._eventsStore.create(this.event);
+      this.event = {};
+      this._modalInstance.close();
+    }
   }
 
   cancel() {

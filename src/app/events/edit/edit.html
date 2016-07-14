@@ -1,16 +1,10 @@
-<form ng-submit="scope.update()">
+<form novalidate="" name="eventForm" ng-submit="scope.update(eventForm)">
   <div class="modal-header">
     <h3 class="modal-title">Update Event</h3>
   </div>
   <div class="modal-body">
-    <div class="form-group">
-      <label for="event-name">Name</label>
-      <input type="text" class="form-control" id="event-name" placeholder="Type event name here" ng-model="scope.event.name">
-    </div>
-    <div class="form-group">
-      <label for="event-price">Price</label>
-      <input type="number" class="form-control" id="event-price" placeholder="Type event price here" ng-model="scope.event.price">
-    </div>
+    <form-field ng-model="scope.event.name" name="name" form="eventForm" label="Name" placeholder="Type event name here" required="true"></form-field>
+    <form-field type="number" ng-model="scope.event.price" name="price" form="eventForm" label="Price" placeholder="Type event price here" required="true" min="0"></form-field>
   </div>
   <div class="modal-footer">
     <button class="btn btn-default" type="button" ng-click="scope.cancel()">Cancel</button>

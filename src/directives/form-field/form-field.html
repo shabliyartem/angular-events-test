@@ -1,0 +1,14 @@
+<div class="form-group" ng-class="{'has-error': (form.$submitted || form[name].$touched) && form[name].$invalid}">
+  <label class="control-label" for="{{inputId}}" ng-if="label">{{label}}</label>
+  <input type="{{type || 'text'}}" name="{{name}}" class="form-control" id="{{inputId}}" ng-model="ngModel" placeholder="{{placeholder}}"
+      ng-required="required" ng-disabled="disabled" ng-attr-min="{{min}}" ng-attr-max="{{max}}" ng-attr-minlength="{{minlength}}"
+      ng-attr-maxlength="{{maxlength}}" ng-attr-pattern="{{pattern}}">
+  <div ng-show="form.$submitted || form[name].$touched">
+    <span class="help-block" ng-show="form[name].$error.required">Required</span>
+    <span class="help-block" ng-show="form[name].$error.min">Should be greater then or equal to {{min}}</span>
+    <span class="help-block" ng-show="form[name].$error.max">Should be less then or equal to {{max}}</span>
+    <span class="help-block" ng-show="form[name].$error.minlength">Should have at least {{minlength}} symbols</span>
+    <span class="help-block" ng-show="form[name].$error.maxlength">Should have not more than {{maxlength}} symbols</span>
+    <span class="help-block" ng-show="form[name].$error.pattern">Should match pattern {{pattern}}</span>
+  </div>
+</div>
