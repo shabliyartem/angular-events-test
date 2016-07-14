@@ -16,8 +16,14 @@ class EventsStore {
     this._storage.setItem('events', JSON.stringify(this._events));
   }
 
-  all () {
-    return _.cloneDeep(this._events);
+  all (page = 1, perPage = 10) {
+    let first = (page - 1) * perPage;
+    let last = first + perPage;
+    return {
+      events: this._events.slice(first, last), 
+      totalCount: this._events.length,
+      totalPrice: _.sumBy(this._events, 'price')
+    };
   }
 
   find (id) {

@@ -1,12 +1,17 @@
 export default class EventsListCtrl {
   constructor ($scope, eventsStore) {
     this._eventsStore = eventsStore;
+    this.currentPage = 1;
+
     $scope.$on('eventsList.needReload', () => this.reloadEvents());
     this.reloadEvents();
   }
 
   reloadEvents () {
-    this.events = this._eventsStore.all();
+    let response = this._eventsStore.all(this.currentPage);
+    this.events = response.events;
+    this.totalEventsCount = response.totalCount;
+    this.totalEventsPrice = response.totalPrice;
   }
 
   destroyEvent (event) {
