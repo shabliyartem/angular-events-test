@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+  <p>{{message}}</p>
+</div>
+<div class="modal-footer">
+  <button class="btn {{cancelClass || 'btn-default'}}" type="button" ng-click="$dismiss()">{{cancelText || 'Cancel'}}</button>
+  <button class="btn {{okClass || 'btn-success'}}" type="submit" ng-click="$close()">{{okText || 'OK'}}</button>
+</div>

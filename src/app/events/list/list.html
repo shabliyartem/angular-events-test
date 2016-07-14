@@ -4,8 +4,9 @@
     <span class="pull-right label label-success total-price">Total price: {{scope.totalEventsPrice}}</span>
   </div>
 
-  <div class="panel-body">
-    <uib-pagination total-items="scope.totalEventsCount" ng-model="scope.currentPage" ng-change="scope.reloadEvents()"></uib-pagination>
+  <div class="panel-body" ng-if="scope.totalEventsCount > 10">
+    <uib-pagination total-items="scope.totalEventsCount" ng-model="scope.currentPage" ng-change="scope.reloadEvents()"
+        previous-text="&lsaquo;" next-text="&rsaquo;"></uib-pagination>
   </div>
 
   <table class="table table-hover">

@@ -22,7 +22,7 @@ class EventsStore {
     return {
       events: this._events.slice(first, last), 
       totalCount: this._events.length,
-      totalPrice: _.sumBy(this._events, 'price')
+      totalPrice: _.sumBy(this._events, 'price') || 0
     };
   }
 
